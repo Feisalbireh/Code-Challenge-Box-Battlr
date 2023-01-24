@@ -13,42 +13,26 @@ A computer that runs on either of the following;(Windows 7+, Linux, Mac OS)
 nodejs 9.0+
 
 
-# Installation
+# Running the Live Application Link
+ 
+To use this application live just press the link in the about section above, or you can copy and paste it from here:
+ 
+               "https://63cfcf38ee0c771d9f3b56fb--cheerful-fox-29f9ac.netlify.app/"
+ 
+When the page loads you should see the search transaction and also the list of recent transactions.
+ 
+To use it
 
-To use this repo on your machine requires some simple steps
-
-### Alternative One
-- Open a terminal / command line interface on your computer
-- Clone the repo by using the following:
-
-        git clone https://github.com/Feisalbireh/Code-Challenge-Box-Battlr.git
-
-- Change directory to the repo folder:
-
-        cd Code-Challenge-Box-Battlr
-
-
-- (Optional) Open it in ``Visual Studio Code``
-
-        code .
-
-### Alternative Two
-
-- On the top right corner of this page there is a button labelled ``Fork``.
-- Click on that button to fork the repo to your own account.
-- Take on the process in ``Alternative One`` above.
-- Remember to replace your username when cloning.
-
-        git clone https://github.com/your-user-name/Code-Challenge-Box-Battlr.git
-
-
-# Running on the Local Server
-
-- In the terminal if you want to open the server type `npm install`
-- Then put `npm start`
+- Press the link in the about section above
 - The webpage will open then you will see army of bots.
 - click on a bot if you want to enlist them into the army.
 - press the red x if you want to remove them from the army.
+
+
+## Technologies Used
+- React
+- JavaScript
+- CSS
 
 ## Author
 
