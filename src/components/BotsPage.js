@@ -1,39 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import YourBotArmy from "./YourBotArmy";
 import BotCollection from "./BotCollection";
 
 function BotsPage() {
   //start here with your code for step one
-  const [bots, setBots] = useState([]);
-  const [army, setArmy] = useState([]);
+  const [bots, setBots] = React.useState([]);
+  const [yourBots, setYourBots] = React.useState([]);
 
-  function enlist(bot) {
-    if (army.includes(bot)) return;
-    setArmy((army) => [...army, bot]);
-  }
-  function retire(bot) {
-    setArmy((army) => army.filter((it) => it.id !== bot.id));
-  }
-  useEffect(() => {
-    fetch("https://api.npoint.io/9290f049f3185d55134b/bots")
-      .then((res) => res.json())
-      .then((data) => setBots(data));
+  React.useEffect(() => {
+    fetch("https://api.npoint.io/f2dab3b71d583e4dbdef/bots")
+      .then((r) => r.json())
+      .then((bots) => setBots(bots));
   }, []);
 
-  function handleDelete(bot) {
-    fetch(`https://api.npoint.io/9290f049f3185d55134b/bots${bot.id}`, {
-      method: "DELETE",
-    }).then(() => {
-      setBots((bots) => bots.filter((it) => it.id !== bot.id));
-      setArmy((army) => army.filter((it) => it.id !== bot.id));
-    });
-  }
+  const addBot = (bot) => {
+    if (!yourBots.includes(bot)) {
+      setYourBots([...yourBots, bot]);
+    }
+  };
 
-  function deleteHandler() {}
+  const removeBot = (bot) => {
+    setYourBots(yourBots.filter((yourBot) => yourBot.id !== bot.id));
+  };
+
   return (
     <div>
-      <YourBotArmy collection={army} clickHandler={retire} handleDelete={handleDelete} />
-      <BotCollection collection={bots} clickHandler={enlist} handleDelete={handleDelete} />
+      <YourBotArmy bots={yourBots} removeBot={removeBot} />
+      <BotCollection bots={bots} botFunction={addBot} />
     </div>
   );
 }

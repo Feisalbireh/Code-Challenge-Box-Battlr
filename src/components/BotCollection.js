@@ -1,16 +1,14 @@
 import React from "react";
 import BotCard from "./BotCard";
 
-function BotCollection({ collection, clickHandler, handleDelete }) {
-  // Your code here
+function BotCollection(props) {
+  const bots = props.bots.map((bot) => {
+    return <BotCard key={bot.id} bot={bot} botFunction={props.botFunction} />;
+  });
+
   return (
-    <div className="ui four column grid">
-      {"Bot Collection click on a bot to add it to your army."}
-      <div className="row">
-        {collection.map((bot) => (
-          <BotCard key={bot.id} bot={bot} clickHandler={clickHandler} handleDelete={handleDelete} />
-        ))}
-      </div>
+    <div className="ui eight column grid">
+      <div className="row">{bots}</div>
     </div>
   );
 }
