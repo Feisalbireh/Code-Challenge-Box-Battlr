@@ -18,7 +18,7 @@
     "start": "PORT=8000 react-scripts start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "build": "react-scripts build",
+    "build": "SET NODE_OPTIONS=--openssl-legacy-provider && react-scripts build",
     "eject": "react-scripts eject",
     "server": "json-server --watch db.json -p 8002"
   },
